@@ -1,0 +1,36 @@
+<div class="input-group mb-3" >
+    <input type="text" class="form-control" (keyup.enter)="getIncomeByCustomer(inputValue)" #inputValue placeholder="Income by customer id" aria-label="Income by customer id" aria-describedby="basic-addon2" style="text-align: center;">
+    <div class="input-group-append">
+        <button class="btn btn-light my-sm-0" (click)="getIncomeByCustomer(inputValue)" type="submit">Search</button>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+   </div>
+<div *ngIf="incomes">
+    <form class="form-inline" style=" padding-top: 15px;height: 100%; display: flex; align-items: center; justify-content: center; align-content: center;">
+            <input class="form-control mr-sm-2" [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search for Income" aria-label="Search" style="width: fit-content;"> 
+            <button class="btn btn-light my-sm-0" type="submit">Search</button>
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let income of incomes | filter:searchText">
+            <td>{{ income.id }}</td>
+            <td>{{ income.name }}</td>
+            <td>{{ income.date|date }}</td>
+            <td>{{ income.description }}</td>
+            <td>{{ income.amount| currency:'USD' }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    

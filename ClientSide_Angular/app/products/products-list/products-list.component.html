@@ -1,0 +1,11 @@
+<mat-grid-list cols="3" rowHeight="360px" style="margin:30px auto">
+    <mat-grid-tile  padding:.75rem
+        *ngFor="let coupon of coupons | filter:searchText" class="img">
+        <div class="imagebox" >
+          <a [routerLink]="coupon.id">
+            <img [src]="coupon.image" class="img-fluid">
+            <span class="imagebox-desc">{{ coupon.title }}</span>
+          </a>
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>

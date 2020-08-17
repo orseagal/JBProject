@@ -1,0 +1,24 @@
+<div *ngIf="companies">
+        <table>
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Delete</th>
+        </tr>
+        <tr *ngFor="let company of companies">
+        <td>{{ company.id }}</td>
+        <td>{{ company.username }}</td>
+        <td>{{ company.email }}</td>
+        <td><button type="button" class="btn btn-primary" (click)="openModal(template)">Delete</button>
+            <ng-template #template>
+              <div class="modal-body text-center">
+                <p>Do you want to confirm?</p>
+                <button type="button" class="btn btn-default" (click)="confirm(company)" >Yes</button>
+                <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+              </div>
+            </ng-template></td>
+        </tr>
+        </table>
+          </div>
+        

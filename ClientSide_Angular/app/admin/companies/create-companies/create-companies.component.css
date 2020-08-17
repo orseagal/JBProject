@@ -1,0 +1,15 @@
+input{
+
+    width: 35ex;
+    
+    }
+
+    span{
+        font-weight: bold;
+       color: red;
+    } 
+    
+    .container{
+
+    margin-top: 30px;
+} 

@@ -1,0 +1,86 @@
+
+<div class="container" style="max-width: 50%;">
+
+    <div class="alert alert-danger" *ngIf="error">
+        <p>{{ error }}</p>
+       </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+       <app-loading-spinner></app-loading-spinner>
+      </div>
+    <form [formGroup]="couponForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5" *ngIf="!isLoading">
+      
+        <p class="h4 mb-4">Create Coupon</p>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Copuon Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title" required >
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+          <mat-error *ngIf="couponForm.controls['title'].errors">Title is required! 3 chars at least</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+              <mat-label>Amount</mat-label>
+              <input matInput type="number" placeholder="amount" formControlName="amount" required>
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+              <!-- <mat-hint>Hint</mat-hint> -->
+            <mat-error *ngIf="couponForm.controls['amount'].errors">Amount is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Price</mat-label>
+                <input matInput type="number" placeholder="price" formControlName="price" required>
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+              <mat-error *ngIf="couponForm.controls['price'].errors">Price is required!</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                  <mat-label>Category</mat-label>
+                  <select matNativeControl formControlName="type" required>
+                      <option value="" disabled>Choose Category</option>
+                      <option value="TRAVELING">Traveling</option>
+                      <option value="RESTAURANTS">Restaurants</option>
+                      <option value="ELECTRONICS">Electronics</option>
+                      <option value="VEHICLES">Vehicles</option>
+                      <option value="HEALTH">Health</option>
+                      <option value="SPORTS">Sports</option>
+                      <option value="CAMPING">Camping</option>
+                  </select>
+                  <mat-error *ngIf="couponForm.controls['type'].errors">Category is required!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field >
+                    <input id="startDate" formControlName="startDate" matInput [min]="minDate" required [matDatepicker]="picker" placeholder="Choose a starting date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="couponForm.controls['startDate'].errors">Starting date is required!</mat-error>
+                  </mat-form-field>
+               
+                  <mat-form-field >
+                      <input id="endDate" formControlName="endDate"  matInput [min]="minDate" required [matDatepicker]="picker2" placeholder="Choose a ends date">
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker2></mat-datepicker>
+                      <mat-error *ngIf="couponForm.controls['endDate'].errors">Ends day date is required!</mat-error>
+                    </mat-form-field>
+                   
+                    <div class="form-group">
+                        <label for="image">Image<br><img [src]="imgSrc" alt="" width="350px" height="250px"></label>
+                       
+                          <input type="file" accept="image/*" (change)="showPreview($event)"  id="image" formControlName="image" class="form-control mb-4" placeholder="Image" required>
+                        </div>
+                        <mat-error *ngIf="couponForm.controls['image'].errors && couponForm.controls['image'].touched">Image is required!</mat-error>
+                        <div class="form-group">
+                            <textarea  class="form-control rounded-0" id="message" formControlName="message" rows="3" placeholder="Description"></textarea>
+                            <mat-error *ngIf="couponForm.controls['message'].errors &&  couponForm.controls['message'].touched">Description required!</mat-error>
+                          </div>
+
+              <div class="button">
+                  <button color="info" block="true" type="submit" [disabled]="!couponForm.valid">Create</button>
+              </div>
+         
+
+
+    </form>
+</div>

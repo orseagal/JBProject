@@ -1,0 +1,25 @@
+:host ::ng-deep .mat-form-field-infix {
+
+    width: 30vh!important;
+} 
+
+ :host ::ng-deep .mat-form-field {
+
+    font-family: 'Josefin Sans', sans-serif!important;
+    font-size: 17px;
+  
+
+}
+
+/* :host ::ng-deep .mat-form-field-subscript-wrapper {
+
+    font-size: 100%!important;
+}  */
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 0.6em 0 0.6em 0; 
+}
+
+
+
+

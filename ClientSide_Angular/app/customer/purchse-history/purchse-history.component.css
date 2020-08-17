@@ -1,0 +1,23 @@
+.container{
+    text-align: center;
+    margin: 40px auto;
+}
+
+h3{
+
+    font-weight: bold;
+}
+
+.card {
+  
+    display: table;
+}
+
+.offset-3 {
+    margin-left: 16%;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 67vh;
+}

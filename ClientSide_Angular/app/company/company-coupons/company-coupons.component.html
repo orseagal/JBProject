@@ -1,0 +1,38 @@
+<table class="table" *ngIf="coupons">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">Ends Date</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of coupons">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.title}}</td>
+        <td>{{coupon.price | currency:'USD'}}</td>
+        <td>{{coupon.amount}}</td>
+        <td>{{coupon.startDate|date }}</td>
+        <td>{{coupon.endDate|date }}</td>
+        <td>{{coupon.type}}</td>
+        <td><img [src]=coupon.image class="thumbnail" height="100" width="100"></td>
+        <td><button type="button" class="btn btn-primary" (click)="openModal(template)">Delete</button>
+            <ng-template #template>
+              <div class="modal-body text-center">
+                <p>Do you want to confirm?</p>
+                <button type="button" class="btn btn-default" (click)="confirm(coupon)" >Yes</button>
+                <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+              </div>
+            </ng-template>
+           <button type="button" class="btn btn-primary" [routerLink]="coupon.id">Edit</button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- (click)="onEdit(coupon) -->

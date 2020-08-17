@@ -1,0 +1,66 @@
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Company</h2>
+        
+        <ul>
+            <li><a [routerLink]="['/company/profile']">Home</a></li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header style="text-align: center;">Profile</mat-expansion-panel-header>
+               <div>
+                    <ul class="list-unstyled">
+                        <li><a [routerLink]="['password-change']">Change password</a></li>
+                      <!-- <li><a [routerLink]="['create-customers']">Create new customer</a></li>
+                          <li><a [routerLink]="['edit-customers']">Edit customer</a></li> -->
+                      
+                    </ul>
+                  </div>
+              </mat-expansion-panel>
+  
+              <!-- <mat-expansion-panel>
+                  <mat-expansion-panel-header style="text-align: center;">Companies</mat-expansion-panel-header>
+                 <div class="collapsible-body">
+                      <ul class="list-unstyled">
+                          <li><a [routerLink]="['companies-list']">All Companies</a></li>
+                        <li><a [routerLink]="['create-companies']">Create new company</a></li>
+                            <li><a [routerLink]="['edit-companies']">Edit company</a></li>
+                        
+
+                      </ul>
+                    </div>
+                </mat-expansion-panel> -->
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header style="text-align: center;">Coupons</mat-expansion-panel-header>
+                   <div >
+                        <ul class="list-unstyled">
+                            <li><a [routerLink]="['create-coupon']">Create Coupon</a></li>
+                            <li><a [routerLink]="['coupons']">My Coupons</a></li>
+                              <!-- <li><a [routerLink]="['edit-customers']">Edit customer</a></li> -->
+                          
+                        </ul>
+                      </div>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header style="text-align: center;">Finance</mat-expansion-panel-header>
+                   <div >
+                        <ul class="list-unstyled">
+                            <li><a [routerLink]="['expenses']">Expenses</a></li>
+                            <li><a [routerLink]="['soldCoupons']">Sold Coupons</a></li>
+                        </ul>
+                      </div>
+                  </mat-expansion-panel>
+
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Map</a></li>
+        </ul> 
+    </div>
+    <div class="main_content">
+        <div class="header">Welcome !! Have a nice day.</div>  
+        <div class="info">
+      
+            <router-outlet></router-outlet>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="container p-3" style="padding: 3rem!important;" >
+   <div class="alert alert-danger" *ngIf="cartItems==null || cartItems.length==0">
+    <p>Cart is empty</p>
+   </div>
+  <div class="offset-3 col-6" *ngIf="cartItems.length>0">
+    <div class="card">
+      <div class="card-header  font-weight-bold">
+        Cart
+      </div>
+      <div class="card card-body">
+        
+        <table class="table" >
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems">
+          <td>{{item.title}}</td>
+          <td><img [src]=item.image class="thumbnail" height="100" width="100"></td>
+          <td>{{item.type}}</td>
+          <td>{{item.price | currency:'USD'}}</td>
+         
+
+          <td><button type="button" class="btn btn-primary" (click)="openModal(template)">Delete</button>
+              <ng-template #template>
+                <div class="modal-body text-center">
+                  <p>Do you want to confirm?</p>
+                  <button type="button" class="btn btn-default" (click)="confirm(item)" >Yes</button>
+                  <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+                </div>
+              </ng-template></td>
+              <div class="alert alert-danger" *ngIf="idArray && idArray.includes(item.id)">
+                <p>You already bought this item</p>
+               </div>
+               <div class="alert alert-danger" *ngIf="!item.avaliable">
+                <p>Not Available</p>
+               </div>
+            </tr>
+          </tbody>
+
+          
+        </table>
+        <hr>
+        <br>
+        <div style="text-align: right; padding-right: 18px;">
+          <p>Subtotal: {{subtotal | currency:'USD'}}</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div style="position: absolute;text-align: right;">
+      <button [disabled]="checkoutError || checkoutClick" class="btn btn-primary" (click)="onCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <table class="table" *ngIf="cartItems">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Image</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+    <td>{{coupon.id}}</td>
+    <td>{{coupon.title}}</td>
+    <td>{{coupon.price | currency:'USD'}}</td>
+   
+    
+    <td>{{coupon.type}}</td>
+    <td><img [src]=coupon.image class="thumbnail" height="100" width="100"></td>
+    <td><button type="button" class="btn btn-primary" (click)="openModal(template)">Delete</button>
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <p>Do you want to confirm?</p>
+            <button type="button" class="btn btn-default" (click)="confirm(coupon)" >Yes</button>
+            <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+          </div>
+        </ng-template></td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

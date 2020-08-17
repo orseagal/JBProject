@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 41px;  font-weight: bold; font-size: 2vh;" >
+  <div class="collapse navbar-collapse"  style="height: 60px;">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+    
+      </li>
+      <li class="nav-item" > 
+        <a class="nav-link" [routerLink]="['category','RESTAURANTS']">Restaurants</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','ELECTRONICS']">Electonics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','VEHICLES']">Vehicles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','HEALTH']">Health</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','SPORTS']">Sports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','CAMPING']">Camping</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['category','TRAVELING']">Traveling</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']">All</a>
+      </li>
+  
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- 
+<mat-grid-list cols="3" rowHeight="360px" style="margin:30px auto">
+  <mat-grid-tile  padding:.75rem
+      *ngFor="let coupon of coupons | filter:searchText" class="img">
+      <div class="imagebox" >
+        <a [routerLink]="[coupon.id]">
+          <img [src]="coupon.image" class="img-fluid">
+          <span class="imagebox-desc">{{ coupon.title }}</span>
+        </a>
+      </div>
+  </mat-grid-tile>
+</mat-grid-list> -->
+ 
+
+
+<!-- <table class="table" *ngIf="coupons">
+      <tr *ngFor="let i of rowIndexArray">
+    <td *ngIf="coupons[3*i]">
+        <div class="imagebox" >
+        <img [src]="coupons[3*i].image" class="img-fluid">
+        <span class="imagebox-desc">{{ coupons[3*i].title }}</span> -->
+        <!-- <span class="imagebox-desc">{{changeText? (coupons[3*i].price | currency:'ILS') : coupons[3*i].title }}</span> -->
+        <!-- </div>
+    </td> -->
+
+       <!-- <td *ngIf="coupons[3*i+1]">
+        <div class="imagebox">
+        <img [src]="coupons[3*i+1].image" class="img-fluid">
+        <span class="imagebox-desc">{{coupons[3*i+1].title}}</span>
+        </div>
+     </td>
+
+      <td *ngIf="coupons[3*i+2]">
+       <div class="imagebox">
+       <img [src]="coupons[3*i+2].image" class="img-fluid">
+       <span class="imagebox-desc">{{coupons[3*i+2].title}}</span>
+     </div>
+    </td> 
+
+        </tr>
+      </table> -->

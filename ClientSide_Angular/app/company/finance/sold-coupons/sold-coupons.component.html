@@ -1,0 +1,37 @@
+<div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+   </div>
+<div class="alert alert-danger" *ngIf="(coupons==null || coupons.length==0) && !isLoading">
+    <p>No sales</p>
+   </div>
+<div class="container" *ngIf="coupons">
+    <p class="h4 mb-4">Total sales: {{subTotal | currency:'USD'}}</p>
+</div>
+
+<table class="table" *ngIf="coupons">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">Ends Date</th>
+        <th scope="col">Category</th>
+        <th scope="col">Image</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coupon of coupons">
+    <td>{{coupon.id}}</td>
+    <td>{{coupon.title}}</td>
+    <td>{{coupon.price | currency:'USD'}}</td>
+    <td>{{coupon.startDate|date }}</td>
+    <td>{{coupon.endDate|date }}</td>
+    <td>{{coupon.type}}</td>
+    <td><img [src]=coupon.image class="thumbnail" height="100" width="100"></td>
+    <td>{{coupon.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- (click)="onEdit(coupon) -->
